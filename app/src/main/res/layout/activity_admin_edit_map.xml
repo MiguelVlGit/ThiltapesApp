@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F2A20">
+
+    <!-- COMPONENTE DE MAPA (Simulado) -->
+    <FrameLayout
+        android:id="@+id/mapEditContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1B3A2E">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dark_map_placeholder"
+            android:alpha="0.4" />
+
+        <!-- PIN CENTRAL (Marcador fixo para posicionamento) -->
+    </FrameLayout>
+
+    <!-- PAINEL SUPERIOR: NOME DA AVENTURA -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#CC0F2A20"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Configurar Aventura"
+                android:textColor="#7ED0A5"
+                android:textSize="12sp"
+                android:textAllCaps="true"
+                android:textStyle="bold"/>
+
+            <!-- CAMPO DE NOME -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Nome da Aventura"
+                android:textColorHint="#AAAAAA"
+                app:hintTextColor="#7ED0A5"
+                app:boxStrokeColor="#7ED0A5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMissionNameV4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:inputType="textCapSentences" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- BARRA DE AÇÃO INFERIOR REESTRUTURADA -->
+    <LinearLayout
+        android:id="@+id/bottomActionPanelV4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="#CC0F2A20"
+        android:padding="16dp">
+
+        <!-- CAMADA 1: ADICIONAR E REMOVER PONTO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <!-- BOTÃO ADICIONAR PONTO -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddPointV4"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Adicionar Ponto"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                app:cornerRadius="12dp"
+                android:backgroundTint="#2E7D32"
+                app:icon="@android:drawable/ic_input_add"
+                app:iconTint="#FFFFFF"
+                android:textAllCaps="false"/>
+
+            <!-- BOTÃO REMOVER -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRemovePointV4"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="Remover"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                app:cornerRadius="12dp"
+                android:backgroundTint="#B71C1C"
+                app:icon="@android:drawable/ic_menu_delete"
+                app:iconTint="#FFFFFF"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+        <!-- CAMADA 2: VOLTAR (ÍCONE) E SALVAR (BASE) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- BOTÃO VOLTAR (ÍCONE CIRCULAR) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackIconV4"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:padding="0dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:icon="@android:drawable/ic_menu_revert"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="24dp"
+                app:iconTint="#FFFFFF"
+                app:cornerRadius="28dp"
+                android:backgroundTint="#254D3D"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Voltar" />
+
+            <!-- BOTÃO SALVAR (PROTAGONISTA) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveV4"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Salvar"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:backgroundTint="#FF9800"
+                app:cornerRadius="12dp"
+                android:textAllCaps="false"
+                app:elevation="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- BOTÃO MINHA LOCALIZAÇÃO -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabLocationV4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomActionPanelV4"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@android:drawable/ic_menu_mylocation"
+        app:backgroundTint="#1B3A2E"
+        app:tint="#FFFFFF"
+        app:fabSize="mini"
+        android:contentDescription="Minha Localização" />
+
+</RelativeLayout>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F2A20">
+
+    <!-- SCROLLVIEW ALINHADO AO TOPO -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="32dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- LOGO CENTRALIZADA COM ESPAÇAMENTO (180x120, marginTop 32dp) -->
+            <ImageView
+                android:id="@+id/imgHeaderUserV12"
+                android:layout_width="458dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="Logo Caça ao Thiltapes"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_thiltapes" />
+
+            <!-- CONTEÚDO DE TEXTO -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp">
+
+                <!-- CABEÇALHO COM TÍTULO E ÁREA DE STATUS (RANKING + XP LADO A LADO) -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp">
+
+                    <!-- PAINEL DO AVENTUREIRO (COR VERDE) -->
+                    <TextView
+                        android:id="@+id/tvPanelTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Painel do Aventureiro"
+                        android:textColor="#7ED0A5"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.1"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <!-- ÁREA DA DIREITA: BOTÃO RANKING E XP LADO A LADO -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- XP (ALINHADO ANTES DO BOTÃO) -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginEnd="12dp">
+
+                            <TextView
+                                android:id="@+id/tvUserXPIntegrated"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2.450"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="XP"
+                                android:textColor="#FF9800"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- BOTÃO DE RANKING ESTILIZADO -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btnRankingCreative"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="20dp"
+                            app:cardBackgroundColor="#1B3A2E"
+                            app:cardElevation="4dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="RANKING"
+                                    android:textColor="#FF9800"
+                                    android:textSize="9sp"
+                                    android:textStyle="bold"
+                                    android:letterSpacing="0.05"/>
+
+                                <ImageView
+                                    android:layout_width="14dp"
+                                    android:layout_height="14dp"
+                                    android:layout_marginStart="4dp"
+                                    android:src="@android:drawable/ic_menu_sort_by_size"
+                                    app:tint="#FF9800" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- BEM-VINDO AVENTUREIRO (BRANCO) -->
+                <TextView
+                    android:id="@+id/tvWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Bem-vindo, Aventureiro!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <!-- ESCOLHA SUA PRÓXIMA AVENTURA (CINZA CLARO) -->
+                <TextView
+                    android:id="@+id/tvChooseAdventure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Escolha sua próxima aventura:"
+                    android:textColor="#A0A0A0"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- LISTA DE JOGOS -->
+                <!-- Card 1 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#1B3A2E"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Trilha das Cavernas"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dificuldade: Média"
+                                android:textColor="#7ED0A5"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="Jogar"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            android:backgroundTint="#FF9800"
+                            android:textColor="#FFFFFF"
+                            app:cornerRadius="12dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card 2 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#1B3A2E"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mistério da Floresta"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dificuldade: Fácil"
+                                android:textColor="#7ED0A5"
+                                android:textSize="12sp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="Jogar"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            android:backgroundTint="#FF9800"
+                            android:textColor="#FFFFFF"
+                            app:cornerRadius="12dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

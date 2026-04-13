@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F2A20">
+
+    <!-- COMPONENTE DE MAPA (Simulado por um FrameLayout) -->
+    <!-- No seu código real, substitua por <com.google.android.gms.maps.MapView ... /> -->
+    <FrameLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1B3A2E">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dark_map_placeholder"
+            android:alpha="0.5" />
+    </FrameLayout>
+
+    <!-- OVERLAY SUPERIOR: STATUS DA MISSÃO -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#CC0F2A20"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Missão: Trilha das Cavernas"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical">
+
+                <ProgressBar
+                    android:id="@+id/missionProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:progress="30"
+                    android:progressTint="#FF9800" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3/10 Itens"
+                    android:textColor="#7ED0A5"
+                    android:textSize="12sp"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- BOTÃO DE VOLTAR / SAIR DA MISSÃO -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/circle_button_bg"
+        android:src="@android:drawable/ic_menu_revert"
+        app:tint="#FFFFFF"
+        android:contentDescription="Sair" />
+
+    <!-- BOTÃO DE LOCALIZAÇÃO ATUAL -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnInventory"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@android:drawable/ic_menu_mylocation"
+        app:backgroundTint="#2E7D32"
+        app:tint="#FFFFFF"
+        app:fabSize="mini"
+        android:contentDescription="Minha Localização" />
+
+    <!-- BOTÃO DE INVENTÁRIO RÁPIDO -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnInventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:text="Coleção"
+        android:textColor="#FFFFFF"
+        app:icon="@android:drawable/ic_menu_gallery"
+        app:iconTint="#FFFFFF"
+        app:backgroundTint="#FF9800"
+        android:contentDescription="Ver Coleção" />
+
+</RelativeLayout>

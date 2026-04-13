@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F2A20">
+
+    <!-- FUNDO DECORATIVO (OPCIONAL: UMA IMAGEM DE FLORESTA ESCURA) -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="75dp"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <!-- LOGO PREMIUM -->
+
+        <!-- TÍTULO E SUBTÍTULO -->
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="471dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Logo Caça ao Thiltapes"
+            android:src="@drawable/logo_thiltapes" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:text="Bem-vindo de volta!"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- CONTAINER DE LOGIN (ESTILO GLASSMORPHISM) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1AFFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1B3A2E"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- CAMPO USUÁRIO -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Usuário ou E-mail"
+                    android:textColorHint="#AAAAAA"
+                    app:boxStrokeColor="#7ED0A5"
+                    app:hintTextColor="#7ED0A5"
+                    app:startIconTint="#7ED0A5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUsuario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:textColor="#FFFFFF" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- CAMPO SENHA -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="Sua Senha"
+                    android:textColorHint="#AAAAAA"
+                    app:boxStrokeColor="#7ED0A5"
+                    app:hintTextColor="#7ED0A5"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="#AAAAAA"
+                    app:startIconTint="#7ED0A5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="#FFFFFF" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- ESQUECI SENHA -->
+
+                <!-- BOTÃO ENTRAR (GRADIENTE/SOLIDO PREMIUM) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEntrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:backgroundTint="#FF8F00"
+                    android:text="Entrar na Jornada"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp"
+                    app:elevation="4dp" />
+
+                <!-- CRIAR CONTA -->
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.2"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dark_forest_bg" />
+
+    </LinearLayout>
+
+</RelativeLayout>
