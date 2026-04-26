@@ -40,7 +40,7 @@
             <ImageView
                 android:id="@+id/imgThiltapesFound"
                 android:layout_width="match_parent"
-                android:layout_height="parent"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/thiltapes_foto_1"
                 android:contentDescription="Foto do Thiltapes Encontrado" />

@@ -39,7 +39,7 @@ public class AdminEditMapActivity extends AppCompatActivity {
         btnSalvar = findViewById(R.id.btnSaveV4);
         btnVoltar = findViewById(R.id.btnBackIconV4);
 
-        apiService = ApiClient.getClient().create(ApiService.class);
+        apiService = ApiClient.getClient(this).create(ApiService.class);
 
         // 📥 Dados recebidos
         modo = getIntent().getStringExtra("modo");

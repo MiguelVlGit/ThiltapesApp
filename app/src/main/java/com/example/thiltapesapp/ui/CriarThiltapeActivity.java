@@ -57,7 +57,7 @@ public class CriarThiltapeActivity extends AppCompatActivity {
 
         jogoId = getIntent().getIntExtra("jogo_id", -1);
 
-        apiService = ApiClient.getClient().create(ApiService.class);
+        apiService = ApiClient.getClient(this).create(ApiService.class);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 

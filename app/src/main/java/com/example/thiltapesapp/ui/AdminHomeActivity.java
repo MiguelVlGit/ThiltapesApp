@@ -44,7 +44,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         rvJogosAdmin = findViewById(R.id.rvJogosAdmin);
         rvJogosAdmin.setLayoutManager(new LinearLayoutManager(this));
 
-        apiService = ApiClient.getClient().create(ApiService.class);
+        apiService = ApiClient.getClient(this).create(ApiService.class);
         fabAdd.setOnClickListener(v -> {
             Intent intent = new Intent(AdminHomeActivity.this, AdminEditMapActivity.class);
             intent.putExtra("modo", "add");

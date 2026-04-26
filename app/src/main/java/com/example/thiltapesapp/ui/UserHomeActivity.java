@@ -43,7 +43,7 @@ public class UserHomeActivity extends AppCompatActivity {
         // IMPORTANTE
         rvJogos.setLayoutManager(new LinearLayoutManager(this));
 
-        apiService = ApiClient.getClient().create(ApiService.class);
+        apiService = ApiClient.getClient(this).create(ApiService.class);
 
         carregarDadosUsuario();
         carregarJogos();

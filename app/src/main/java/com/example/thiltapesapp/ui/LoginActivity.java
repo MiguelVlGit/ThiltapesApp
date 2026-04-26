@@ -39,9 +39,11 @@ public class LoginActivity extends AppCompatActivity {
         etSenha = findViewById(R.id.etSenha);
         btnEntrar = findViewById(R.id.btnEntrar);
 
-        apiService = ApiClient.getClient().create(ApiService.class);
+        apiService = ApiClient.getClient(this).create(ApiService.class);
 
         btnEntrar.setOnClickListener(v -> performLogin());
+        findViewById(R.id.tvCriarConta).setOnClickListener(v ->
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
     }
 
     private void performLogin() {

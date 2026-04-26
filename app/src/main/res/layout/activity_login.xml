@@ -111,7 +111,15 @@
                     app:cornerRadius="12dp"
                     app:elevation="4dp" />
 
-                <!-- CRIAR CONTA -->
+                <TextView
+                    android:id="@+id/tvCriarConta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="Não tem conta? Cadastre-se"
+                    android:textColor="#7ED0A5"
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
