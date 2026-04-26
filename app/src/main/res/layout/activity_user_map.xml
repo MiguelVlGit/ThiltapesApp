@@ -6,21 +6,10 @@
     android:layout_height="match_parent"
     android:background="#0F2A20">
 
-    <!-- COMPONENTE DE MAPA (Simulado por um FrameLayout) -->
-    <!-- No seu código real, substitua por <com.google.android.gms.maps.MapView ... /> -->
     <FrameLayout
         android:id="@+id/mapContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#1B3A2E">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/dark_map_placeholder"
-            android:alpha="0.5" />
-    </FrameLayout>
+        android:layout_height="match_parent"/>
 
     <!-- OVERLAY SUPERIOR: STATUS DA MISSÃO -->
     <androidx.cardview.widget.CardView
@@ -38,9 +27,10 @@
             android:padding="12dp">
 
             <TextView
+                android:id="@+id/tvMissionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Missão: Trilha das Cavernas"
+                android:text="Missão"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -58,13 +48,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:progress="30"
+                    android:progress="0"
                     android:progressTint="#FF9800" />
 
                 <TextView
+                    android:id="@+id/tvProgress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3/10 Itens"
+                    android:text="0/0 Thiltapes"
                     android:textColor="#7ED0A5"
                     android:textSize="12sp"
                     android:layout_marginStart="8dp"
@@ -73,7 +64,110 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- BOTÃO DE VOLTAR / SAIR DA MISSÃO -->
+    <!-- CARD: DICA DE PROXIMIDADE -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:visibility="gone"
+        app:cardCornerRadius="24dp"
+        app:cardBackgroundColor="#CC0F2A20"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvHintZone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Frio"/>
+
+            <TextView
+                android:id="@+id/tvHintTrend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginStart="8dp"
+                android:text=""/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- CARD: THILTAPE PRÓXIMO -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardNearby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="90dp"
+        android:visibility="gone"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="#CC1B3A2E"
+        app:cardElevation="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thiltape próximo!"
+                    android:textColor="#7ED0A5"
+                    android:textSize="11sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvNearbyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCapturar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capturar!"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                app:backgroundTint="#FF9800"
+                app:cornerRadius="12dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- BOTÃO DE VOLTAR -->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="48dp"
@@ -101,7 +195,7 @@
         app:fabSize="mini"
         android:contentDescription="Minha Localização" />
 
-    <!-- BOTÃO DE INVENTÁRIO RÁPIDO -->
+    <!-- BOTÃO DE COLEÇÃO -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btnInventory"
         android:layout_width="wrap_content"

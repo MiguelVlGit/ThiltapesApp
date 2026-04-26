@@ -71,5 +71,5 @@ public interface ApiService {
     Call<Thiltape> atualizarThiltape(@Path("jogo_id") int jogoId, @Path("thiltape_id") int thiltapeId, @Body Thiltape thiltape);
 
     @POST("jogos/{jogo_id}/thiltapes/{thiltape_id}/capturar")
-    Call<LogCaptura> capturarThiltape(@Path("jogo_id") int jogoId, @Path("thiltape_id") int thiltapeId);
+    Call<LogCaptura> capturarThiltape(@Path("jogo_id") int jogoId, @Path("thiltape_id") int thiltapeId, @Body Map<String, Double> body);
 }

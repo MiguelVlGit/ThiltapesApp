@@ -27,7 +27,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEditar"
@@ -51,6 +52,15 @@
                 app:cornerRadius="8dp" />
 
         </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnThiltapes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gerenciar Thiltapes"
+            android:textSize="13sp"
+            app:backgroundTint="#FF8F00"
+            app:cornerRadius="8dp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -60,6 +60,48 @@
                     android:textSize="16sp"
                     android:inputType="textCapSentences" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- DATA INÍCIO -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Data de início"
+                android:textColorHint="#AAAAAA"
+                app:hintTextColor="#7ED0A5"
+                app:boxStrokeColor="#7ED0A5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDataInicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- DATA FIM -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Data de fim"
+                android:textColorHint="#AAAAAA"
+                app:hintTextColor="#7ED0A5"
+                app:boxStrokeColor="#7ED0A5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDataFim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

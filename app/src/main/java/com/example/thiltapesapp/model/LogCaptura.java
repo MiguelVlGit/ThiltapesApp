@@ -12,10 +12,10 @@ public class LogCaptura {
     @SerializedName("id_usuario")
     private int idUsuario;
 
-    @SerializedName("lat_usuario")
+    @SerializedName("latitude_usuario")
     private double latUsuario;
 
-    @SerializedName("lon_usuario")
+    @SerializedName("longitude_usuario")
     private double lonUsuario;
 
     @SerializedName("capturado_em")

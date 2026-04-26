@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F2A20">
 
-    <!-- SCROLLVIEW PARA GALERIA VERTICAL -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,18 +17,17 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <!-- LOGO COM ESPAÇAMENTO NO TOPO E TAMANHO AJUSTADO -->
             <ImageView
-                android:id="@+id/imgHeaderCollection"
-                android:layout_width="500dp"
-                android:layout_height="170dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="120dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="16dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/logo_thiltapes"
-                android:contentDescription="Logo Caça ao Thiltapes" />
+                android:contentDescription="Logo Thiltapes" />
 
-            <!-- TEXTOS DE INTRODUÇÃO -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,7 +35,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingTop="8dp"
-                android:paddingBottom="10dp">
+                android:paddingBottom="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -47,107 +44,32 @@
                     android:textColor="#7ED0A5"
                     android:textSize="14sp"
                     android:textAllCaps="true"
-                    android:letterSpacing="0.1"
-                    android:fontFamily="sans-serif-medium"/>
+                    android:letterSpacing="0.1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thiltapes Encontrados"
+                    android:text="Thiltapes do Jogo"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="2dp"/>
+                    android:layout_marginTop="2dp" />
 
                 <TextView
+                    android:id="@+id/tvContadorColecao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Veja a galeria de criaturas que você capturou na sua jornada:"
                     android:textColor="#A0A0A0"
                     android:textSize="14sp"
                     android:layout_marginTop="6dp"
-                    android:layout_marginBottom="20dp"/>
+                    android:layout_marginBottom="20dp"
+                    android:text="Carregando..." />
 
-                <!-- LISTA SEQUENCIAL DE CARDS GRANDES (GALERIA) -->
-
-                <!-- Card de Exemplo 1 (Thiltapes Luminoso) -->
-                <androidx.cardview.widget.CardView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvColecao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardBackgroundColor="#1B3A2E"
-                    app:cardElevation="6dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <!-- IMAGENZONA DO THILTAPES -->
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="250dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/thiltapes_foto_1"
-                            android:contentDescription="Foto do Thiltapes Encontrado" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Thiltapes-Luminar"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Card de Exemplo 2 (Outro Thiltapes) -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardBackgroundColor="#1B3A2E"
-                    app:cardElevation="6dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="250dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/thiltapes_foto_2"
-                            android:contentDescription="Foto do Thiltapes Encontrado" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Thiltapes da Mata"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                    android:nestedScrollingEnabled="false" />
 
             </LinearLayout>
         </LinearLayout>

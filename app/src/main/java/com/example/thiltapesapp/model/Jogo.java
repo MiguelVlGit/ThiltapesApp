@@ -1,10 +1,9 @@
 package com.example.thiltapesapp.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.Date;
 
 public class Jogo {
-    private int id;
+    private Integer id;
     private String nome;
 
     @SerializedName("imagem_url")
@@ -13,18 +12,18 @@ public class Jogo {
     private String status;
 
     @SerializedName("data_inicio")
-    private Date dataInicio;
+    private String dataInicio;
 
     @SerializedName("data_fim")
-    private Date dataFim;
+    private String dataFim;
 
     public Jogo() {}
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -52,19 +51,19 @@ public class Jogo {
         this.status = status;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 }

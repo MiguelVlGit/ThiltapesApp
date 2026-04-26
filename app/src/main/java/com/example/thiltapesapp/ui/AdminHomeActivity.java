@@ -17,6 +17,8 @@ import com.example.thiltapesapp.R;
 import com.example.thiltapesapp.api.ApiClient;
 import com.example.thiltapesapp.api.ApiService;
 import com.example.thiltapesapp.model.Jogo;
+import com.example.thiltapesapp.utils.TokenManager;
+import com.example.thiltapesapp.utils.UserManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -50,6 +52,12 @@ public class AdminHomeActivity extends AppCompatActivity {
             intent.putExtra("modo", "add");
             startActivity(intent);
         });
+        findViewById(R.id.btnLogout).setOnClickListener(v -> logout());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         carregarJogos();
     }
 
@@ -84,12 +92,22 @@ public class AdminHomeActivity extends AppCompatActivity {
                             TextView tvNome = holder.itemView.findViewById(R.id.tvNomeJogo);
                             MaterialButton btnEditar = holder.itemView.findViewById(R.id.btnEditar);
                             MaterialButton btnExcluir = holder.itemView.findViewById(R.id.btnExcluir);
+                            MaterialButton btnThiltapes = holder.itemView.findViewById(R.id.btnThiltapes);
                             tvNome.setText(jogo.getNome());
+
+                            btnThiltapes.setOnClickListener(v -> {
+                                Intent intent = new Intent(AdminHomeActivity.this, AdminThiltapesActivity.class);
+                                intent.putExtra("jogo_id", jogo.getId());
+                                intent.putExtra("jogo_nome", jogo.getNome());
+                                startActivity(intent);
+                            });
                             btnEditar.setOnClickListener(v -> {
                                 Intent intent = new Intent(AdminHomeActivity.this, AdminEditMapActivity.class);
                                 intent.putExtra("modo", "edit");
                                 intent.putExtra("jogo_id", jogo.getId());
                                 intent.putExtra("nome", jogo.getNome());
+                                intent.putExtra("data_inicio", jogo.getDataInicio());
+                                intent.putExtra("data_fim", jogo.getDataFim());
                                 startActivity(intent);
                             });
 
@@ -135,5 +153,13 @@ public class AdminHomeActivity extends AppCompatActivity {
                 Toast.makeText(AdminHomeActivity.this, "Erro de conexão", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void logout() {
+        new TokenManager(this).clearToken();
+        new UserManager(this).clearUser();
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }

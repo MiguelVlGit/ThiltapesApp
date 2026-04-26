@@ -11,30 +11,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvNomeJogo"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Nome do Jogo"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginEnd="12dp" />
+            android:layout_marginBottom="12dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnJogar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Jogar"
-            android:textSize="13sp"
-            app:backgroundTint="#2E7D32"
-            app:cornerRadius="8dp" />
+            android:orientation="horizontal">
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnJogar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Jogar"
+                android:textSize="13sp"
+                app:backgroundTint="#2E7D32"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRanking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ranking"
+                android:textSize="13sp"
+                app:backgroundTint="#FF8F00"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
