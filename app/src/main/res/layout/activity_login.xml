@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/imgLogo"
-            android:layout_width="471dp"
-            android:layout_height="wrap_content"
+            android:layout_width="329dp"
+            android:layout_height="112dp"
             android:layout_gravity="center"
             android:layout_marginBottom="24dp"
             android:contentDescription="Logo Caça ao Thiltapes"
@@ -98,12 +98,14 @@
                 <!-- ESQUECI SENHA -->
 
                 <!-- BOTÃO ENTRAR (GRADIENTE/SOLIDO PREMIUM) -->
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnEntrar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:backgroundTint="#FF8F00"
                     android:text="Entrar na Jornada"
+                    android:layout_marginTop="16dp"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"

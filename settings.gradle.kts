@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ThiltapesApp"
+rootProject.name = "Thiltapes"
 include(":app")

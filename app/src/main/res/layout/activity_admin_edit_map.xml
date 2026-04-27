@@ -113,7 +113,8 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
         android:background="#CC0F2A20"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:paddingBottom="32dp">
 
         <!-- CAMADA 1: ADICIONAR E REMOVER PONTO -->
         <LinearLayout
