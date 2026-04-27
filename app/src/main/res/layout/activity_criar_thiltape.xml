@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- TOP CARD: nome -->
+    <!-- TOP CARD: nome + foto -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +51,32 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFFFFF"
                     android:inputType="textCapSentences" />
+
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTirarFoto"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:text="Tirar Foto"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                app:backgroundTint="#254D3D"
+                app:cornerRadius="10dp"
+                app:icon="@android:drawable/ic_menu_camera"
+                app:iconTint="#7ED0A5"
+                app:iconGravity="textStart" />
+
+            <ImageView
+                android:id="@+id/ivPreviewFoto"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:background="#1A7ED0A5" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

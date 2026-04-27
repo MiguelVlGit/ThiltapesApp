@@ -1,9 +1,12 @@
 package com.example.thiltapesapp.ui;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -92,18 +95,31 @@ public class UserCollectionActivity extends AppCompatActivity {
             holder.tvNome.setText(t.getNome());
 
             if (capturado) {
+                String imagemBase64 = t.getImagemUrl();
+                if (imagemBase64 != null && !imagemBase64.isEmpty()) {
+                    try {
+                        byte[] decoded = android.util.Base64.decode(imagemBase64, android.util.Base64.NO_WRAP);
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(decoded, 0, decoded.length);
+                        holder.ivThiltape.setImageBitmap(bitmap);
+                    } catch (Exception e) {
+                        holder.ivThiltape.setImageResource(android.R.drawable.ic_menu_camera);
+                    }
+                }
+                holder.ivThiltape.setVisibility(View.VISIBLE);
+                holder.ivPlaceholder.setVisibility(View.GONE);
                 holder.tvBadge.setText("✓");
                 holder.tvBadge.setTextColor(0xFF7ED0A5);
                 holder.tvStatus.setText("Capturado");
                 holder.tvStatus.setTextColor(0xFF7ED0A5);
             } else {
-                holder.tvBadge.setText("?");
-                holder.tvBadge.setTextColor(0xFFA0A0A0);
+                holder.ivThiltape.setVisibility(View.GONE);
+                holder.ivPlaceholder.setVisibility(View.VISIBLE);
+                holder.tvBadge.setText("");
                 holder.tvStatus.setText("Disponível");
                 holder.tvStatus.setTextColor(0xFFA0A0A0);
+                holder.tvNome.setTextColor(0xFFA0A0A0);
             }
         }
-
         @Override
         public int getItemCount() {
             return thiltapes.size();
@@ -111,12 +127,16 @@ public class UserCollectionActivity extends AppCompatActivity {
 
         static class VH extends RecyclerView.ViewHolder {
             TextView tvBadge, tvNome, tvStatus;
+            ImageView ivThiltape;
+            View ivPlaceholder;
 
             VH(@NonNull View itemView) {
                 super(itemView);
-                tvBadge = itemView.findViewById(R.id.tvStatusBadge);
-                tvNome = itemView.findViewById(R.id.tvNomeThiltape);
-                tvStatus = itemView.findViewById(R.id.tvStatusThiltape);
+                tvBadge       = itemView.findViewById(R.id.tvStatusBadge);
+                tvNome        = itemView.findViewById(R.id.tvNomeThiltape);
+                tvStatus      = itemView.findViewById(R.id.tvStatusThiltape);
+                ivThiltape    = itemView.findViewById(R.id.ivThiltape);
+                ivPlaceholder = itemView.findViewById(R.id.ivPlaceholder);
             }
         }
     }

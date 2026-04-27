@@ -3,14 +3,15 @@ package com.example.thiltapesapp.ui;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Locale;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.example.thiltapesapp.R;
 import com.example.thiltapesapp.api.ApiClient;
@@ -37,34 +38,39 @@ public class AdminEditMapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_admin_edit_map);
 
-        etNome = findViewById(R.id.etMissionNameV4);
-        etDataInicio = findViewById(R.id.etDataInicio);
-        etDataFim = findViewById(R.id.etDataFim);
-        btnSalvar = findViewById(R.id.btnSaveV4);
-        btnVoltar = findViewById(R.id.btnBackIconV4);
-        btnAddPoint = findViewById(R.id.btnAddPointV4);
+        // Ajusta padding do bottom bar para não sobrepor barra de navegação
+        LinearLayout bottomBar = findViewById(R.id.bottomActionPanelV4);
+        ViewCompat.setOnApplyWindowInsetsListener(bottomBar, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(16, 16, 16, 16 + bottomInset);
+            return insets;
+        });
+
+        etNome        = findViewById(R.id.etMissionNameV4);
+        etDataInicio  = findViewById(R.id.etDataInicio);
+        etDataFim     = findViewById(R.id.etDataFim);
+        btnSalvar     = findViewById(R.id.btnSaveV4);
+        btnVoltar     = findViewById(R.id.btnBackIconV4);
+        btnAddPoint   = findViewById(R.id.btnAddPointV4);
         btnRemovePoint = findViewById(R.id.btnRemovePointV4);
 
         etDataInicio.setOnClickListener(v -> mostrarDatePicker(etDataInicio));
         etDataFim.setOnClickListener(v -> mostrarDatePicker(etDataFim));
 
         apiService = ApiClient.getClient(this).create(ApiService.class);
-
         modo = getIntent().getStringExtra("modo");
 
         if ("edit".equals(modo)) {
-            jogoId = getIntent().getIntExtra("jogo_id", -1);
+            jogoId   = getIntent().getIntExtra("jogo_id", -1);
             jogoNome = getIntent().getStringExtra("nome");
             etNome.setText(jogoNome);
 
             String dataInicio = getIntent().getStringExtra("data_inicio");
-            String dataFim = getIntent().getStringExtra("data_fim");
+            String dataFim    = getIntent().getStringExtra("data_fim");
             if (dataInicio != null) etDataInicio.setText(dataInicio);
-            if (dataFim != null) etDataFim.setText(dataFim);
+            if (dataFim    != null) etDataFim.setText(dataFim);
 
             btnAddPoint.setOnClickListener(v -> {
                 Intent intent = new Intent(this, AdminThiltapesActivity.class);
@@ -79,8 +85,8 @@ public class AdminEditMapActivity extends AppCompatActivity {
                 intent.putExtra("jogo_nome", jogoNome);
                 startActivity(intent);
             });
+
         } else {
-            // Jogo ainda não existe — esconde os botões de ponto
             btnAddPoint.setVisibility(android.view.View.GONE);
             btnRemovePoint.setVisibility(android.view.View.GONE);
         }
@@ -98,9 +104,9 @@ public class AdminEditMapActivity extends AppCompatActivity {
     }
 
     private void salvar() {
-        String nome = etNome.getText().toString().trim();
+        String nome       = etNome.getText().toString().trim();
         String dataInicio = etDataInicio.getText().toString().trim();
-        String dataFim = etDataFim.getText().toString().trim();
+        String dataFim    = etDataFim.getText().toString().trim();
 
         if (nome.isEmpty()) {
             Toast.makeText(this, "Digite o nome da aventura", Toast.LENGTH_SHORT).show();
@@ -116,9 +122,7 @@ public class AdminEditMapActivity extends AppCompatActivity {
         jogo.setDataInicio(dataInicio);
         jogo.setDataFim(dataFim);
 
-        // ➕ CRIAR
         if ("add".equals(modo)) {
-
             apiService.criarJogo(jogo).enqueue(new Callback<Jogo>() {
                 @Override
                 public void onResponse(Call<Jogo> call, Response<Jogo> response) {
@@ -135,11 +139,8 @@ public class AdminEditMapActivity extends AppCompatActivity {
                     Toast.makeText(AdminEditMapActivity.this, "Erro de conexão", Toast.LENGTH_SHORT).show();
                 }
             });
-        }
 
-        // ✏️ EDITAR
-        else if ("edit".equals(modo)) {
-
+        } else if ("edit".equals(modo)) {
             apiService.atualizarJogo(jogoId, jogo).enqueue(new Callback<Jogo>() {
                 @Override
                 public void onResponse(Call<Jogo> call, Response<Jogo> response) {
