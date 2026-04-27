@@ -19,6 +19,8 @@ public class Thiltape {
 
     private String status;
 
+    private boolean capturado;
+
     @SerializedName("criado_em")
     private String criadoEm;
 
@@ -78,5 +80,13 @@ public class Thiltape {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public boolean isCapturado() {
+        return capturado;
+    }
+
+    public void setCapturado(boolean capturado) {
+        this.capturado = capturado;
     }
 }

@@ -1,7 +1,6 @@
 package com.example.thiltapesapp.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.Date;
 
 public class LogCaptura {
     private int id;
@@ -19,7 +18,7 @@ public class LogCaptura {
     private double lonUsuario;
 
     @SerializedName("capturado_em")
-    private Date capturadoEm;
+    private String capturadoEm;
 
     public LogCaptura() {}
 
@@ -63,11 +62,11 @@ public class LogCaptura {
         this.lonUsuario = lonUsuario;
     }
 
-    public Date getCapturadoEm() {
+    public String getCapturadoEm() {
         return capturadoEm;
     }
 
-    public void setCapturadoEm(Date capturadoEm) {
+    public void setCapturadoEm(String capturadoEm) {
         this.capturadoEm = capturadoEm;
     }
 }

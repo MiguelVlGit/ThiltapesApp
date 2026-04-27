@@ -29,7 +29,7 @@ import retrofit2.Response;
 
 public class UserHomeActivity extends AppCompatActivity {
 
-    private TextView tvWelcome, tvUserXP;
+    private TextView tvWelcome;
     private ApiService apiService;
     private RecyclerView rvJogos;
 
@@ -39,7 +39,6 @@ public class UserHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_home);
 
         tvWelcome = findViewById(R.id.tvWelcome);
-        tvUserXP = findViewById(R.id.tvUserXPIntegrated);
         rvJogos = findViewById(R.id.rvJogos);
 
         // IMPORTANTE

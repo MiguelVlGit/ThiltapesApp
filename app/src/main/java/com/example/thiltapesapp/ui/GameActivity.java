@@ -177,7 +177,7 @@ public class GameActivity extends AppCompatActivity implements OnMapReadyCallbac
                     thiltapeList.clear();
                     previousNearestDistance = Float.MAX_VALUE;
                     for (Thiltape t : response.body()) {
-                        if (!"capturado".equalsIgnoreCase(t.getStatus())) {
+                        if (!t.isCapturado()) {
                             thiltapeList.add(t);
                         }
                     }
@@ -274,7 +274,7 @@ public class GameActivity extends AppCompatActivity implements OnMapReadyCallbac
         int total = todos.size();
         int capturados = 0;
         for (Thiltape t : todos) {
-            if ("capturado".equalsIgnoreCase(t.getStatus())) capturados++;
+            if (t.isCapturado()) capturados++;
         }
         tvProgress.setText(capturados + "/" + total + " Thiltapes");
         progressBar.setMax(total);

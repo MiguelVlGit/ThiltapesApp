@@ -52,7 +52,7 @@ public class UserCollectionActivity extends AppCompatActivity {
                     List<Thiltape> thiltapes = response.body();
                     long capturados = 0;
                     for (Thiltape t : thiltapes) {
-                        if ("capturado".equalsIgnoreCase(t.getStatus())) capturados++;
+                        if (t.isCapturado()) capturados++;
                     }
                     tvContador.setText(capturados + " de " + thiltapes.size() + " capturados");
                     rvColecao.setAdapter(new ColecaoAdapter(thiltapes));
@@ -87,7 +87,7 @@ public class UserCollectionActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull VH holder, int position) {
             Thiltape t = thiltapes.get(position);
-            boolean capturado = "capturado".equalsIgnoreCase(t.getStatus());
+            boolean capturado = t.isCapturado();
 
             holder.tvNome.setText(t.getNome());
 
